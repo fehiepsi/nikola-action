@@ -4,12 +4,12 @@
 
 set -e
 
+cd site
 echo "REPO: $GITHUB_REPOSITORY"
 echo "ACTOR: $GITHUB_ACTOR"
 
 echo "==> Preparing..."
 if ! $INPUT_DRY_RUN; then
-    cd site
     src_branch="$(python -c 'import conf; print(conf.GITHUB_SOURCE_BRANCH)')"
     dest_branch="$(python -c 'import conf; print(conf.GITHUB_DEPLOY_BRANCH)')"
     
